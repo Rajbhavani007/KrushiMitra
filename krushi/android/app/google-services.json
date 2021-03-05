@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "69722132524",
+    "project_id": "krushimitra-33e45",
+    "storage_bucket": "krushimitra-33e45.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:69722132524:android:8b2942a863994b96d98189",
+        "android_client_info": {
+          "package_name": "com.example.krushi"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "69722132524-as0tgpgr4pnu1nno0suponr1pcote4ls.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.krushi",
+            "certificate_hash": "12c38d7a509841b7e22353b442a6da96f3c34347"
+          }
+        },
+        {
+          "client_id": "69722132524-sbu21ub6usr2m4qs8kjiu1gi6es0rfeg.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCxEeTlcbaTW-UEuC-TlwQIgVJKCtlnI9k"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "69722132524-sbu21ub6usr2m4qs8kjiu1gi6es0rfeg.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

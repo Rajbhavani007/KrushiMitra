@@ -33,6 +33,11 @@ dependencies:
   
   share : ^0.6.5
   image_picker: ^0.6.7+22
+  firebase_core: ^0.7.0
+  firebase_auth: ^0.20.0+1
+  cloud_firestore: ^0.16.0
+  flutter_signin_button: ^1.1.0
+  fluttertoast: ^7.1.6
 
 dev_dependencies:
   flutter_test:
