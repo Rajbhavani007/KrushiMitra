@@ -1,109 +1,18 @@
-
 import 'dart:io';
 import 'dart:convert';
 import 'dart:async';
 import "package:flutter/material.dart";
 import "package:image_picker/image_picker.dart";
-
-
-
-
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 
-
-// class Upload extends StatelessWidget {
-//   @override
-//   Widget build(BuildContext context) {
-//     return MaterialApp(
-//       title: "HOME",
-//       theme: ThemeData(
-//         primarySwatch: Colors.blue,
-//         visualDensity: VisualDensity.adaptivePlatformDensity,
-//       ),
-//       home: UploadImage(),
-//     );
-//   }
-// }
-
-// class UploadImage extends StatefulWidget {
-//   @override
-//   _UploadImageState createState() => _UploadImageState();
-// }
-
-// class _UploadImageState extends State<UploadImage> {
-//   // ignore: unused_field
-//   File _image;
-
-//   Future getImage() async {
-//     final image = await ImagePicker.pickImage(source: ImageSource.gallery);
-
-//     setState(() {
-//       _image = image;
-//     });
-//   }
-
-//   @override
-//   Widget build(BuildContext context) {
-//     return Scaffold(
-//         appBar: AppBar(
-//           title: Text("Upload Image"),
-//           backgroundColor: Colors.blue,
-//         ),
-//         body:Center(
-//           child:Column(children: [
-//         _image == null ? Text("Image not Loaded") : Image.file(_image),
-//             FlatButton(
-//             shape: RoundedRectangleBorder(
-//               borderRadius: BorderRadius.circular(18.0),
-//               side: BorderSide(color: Colors.red),
-//             ),
-//             onPressed: () {
-//               getImage();
-//             },
-//             child: Text("Image Picker"),
-//           ),
-//           ],
-          
-//           ),
-          
-              
-//           ),  
-           
-//         );
-//   }
-// }
-
-
-
-
-void main() {
-  runApp(MyApp());
-}
-
-class MyApp extends StatelessWidget {
-  // This widget is the root of your application.
+class UploadImage extends StatefulWidget {
   @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      title: 'Flutter Demo',
-      theme: ThemeData(
-        primarySwatch: Colors.blue,
-        visualDensity: VisualDensity.adaptivePlatformDensity,
-      ),
-      home: MyHomePage(),
-    );
-  }
+  _UploadImageState createState() => _UploadImageState();
 }
 
-class MyHomePage extends StatefulWidget {
-  @override
-  _MyHomePageState createState() => _MyHomePageState();
-}
-
-class _MyHomePageState extends State<MyHomePage> {
+class _UploadImageState extends State<UploadImage> {
   String title = 'Stepper';
   StepperType _stepperType = StepperType.vertical;
   int _currentStep = 0;
@@ -119,7 +28,6 @@ class _MyHomePageState extends State<MyHomePage> {
         physics: ClampingScrollPhysics(),
         currentStep: this._currentStep,
         type: _stepperType,
-     
         onStepTapped: (step) {
           setState(() {
             this._currentStep = step;
@@ -165,7 +73,7 @@ class _MyHomePageState extends State<MyHomePage> {
             children: <Widget>[
               Text('Upload your image here',
                   style: TextStyle(color: Colors.grey)),
-                   _image == null ? Text("Image not Loaded") : Image.file(_image),
+              _image == null ? Text("Image not Loaded") : Image.file(_image),
               FlatButton(
                 onPressed: () {
                   getImage();
@@ -210,8 +118,6 @@ class _MyHomePageState extends State<MyHomePage> {
 
     return _steps;
   }
-
- 
 }
 
 Widget showImage() {

@@ -1,9 +1,35 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'Profilepage.dart';
 import 'SettingPage.dart';
 import 'package:share/share.dart';
 
 class MainDrawer extends StatelessWidget {
+  final FirebaseAuth _auth = FirebaseAuth.instance;
+  User user;
+  bool isLogggedin = false;
+
+  // getuser() async {
+  //   User Firebaseuser = await _auth.currentUser;
+  //   await Firebaseuser?.reload();
+  //   Firebaseuser = _auth.currentUser;
+
+  //   if (Firebaseuser != null) {
+  //     setState(() {
+  //       this.user = Firebaseuser;
+  //       this.isLogggedin = true;
+  //     });
+  //   }
+  // }
+
+  // void initState() {
+  //   this.getuser();
+  // }
+
+  SignOut() async {
+    _auth.signOut();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Drawer(
@@ -28,7 +54,8 @@ class MainDrawer extends StatelessWidget {
                             fit: BoxFit.fill),
                       )),
                   Text(
-                    "Raj Bhavani",
+                    // "${user.displayName}",
+                    "Raj",
                     style: TextStyle(
                       fontWeight: FontWeight.bold,
                       fontSize: 20,
@@ -36,7 +63,8 @@ class MainDrawer extends StatelessWidget {
                     ),
                   ),
                   Text(
-                    "18DCE007@charusat.edu.in",
+                    // "${user.email}",
+                    "@gmail.com",
                     style: TextStyle(
                       fontWeight: FontWeight.bold,
                       fontSize: 15,
@@ -55,7 +83,6 @@ class MainDrawer extends StatelessWidget {
                 fontSize: 18,
               ),
             ),
-          
             onTap: () {
               Navigator.push(context,
                   MaterialPageRoute(builder: (context) => ProfilePage()));
@@ -82,9 +109,10 @@ class MainDrawer extends StatelessWidget {
                 fontSize: 18,
               ),
             ),
-            onTap:(){
-              Share.share("Listen this song https://www.youtube.com/watch?v=kJQP7kiw5Fk Most viewed song in the world",subject: "Despacito Song");
-
+            onTap: () {
+              Share.share(
+                  "Listen this song https://www.youtube.com/watch?v=kJQP7kiw5Fk Most viewed song in the world",
+                  subject: "Despacito Song");
             },
           ),
           ListTile(
@@ -95,8 +123,9 @@ class MainDrawer extends StatelessWidget {
                 fontSize: 18,
               ),
             ),
-            onTap:null,
-          
+            onTap: () {
+              SignOut();
+            },
           ),
         ],
       ),
