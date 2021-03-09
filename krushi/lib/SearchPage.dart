@@ -6,8 +6,13 @@ class SearchPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
      appBar: AppBar(
-        title: Text("Serarch"),
-         backgroundColor: Colors.orange,
+        title: Text("Serarch",style: TextStyle(color: Colors.black),),
+         backgroundColor: Colors.white,
+         leading: IconButton(
+          icon: Icon(Icons.sort),
+           color: Colors.green,
+          onPressed: () => Scaffold.of(context).openDrawer(),
+        ),
       ),
       drawer: MainDrawer(),
       body: Center(

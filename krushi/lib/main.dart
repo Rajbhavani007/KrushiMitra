@@ -53,8 +53,9 @@ class _MyHomePageState extends State<MyHomePage> {
       drawer: MainDrawer(),
       body: _pageOption[_selectpage],
       bottomNavigationBar: ConvexAppBar(
-        color: Colors.white,
-        backgroundColor: Colors.orange,
+        color: Colors.black,
+        backgroundColor: Colors.white70,
+        activeColor: Colors.green,
         items: [
           TabItem(
             icon: Icons.home,

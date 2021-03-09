@@ -45,7 +45,7 @@ class _StartState extends State<Start> {
                         fontSize: 30.0,
                         fontWeight: FontWeight.bold,
                         letterSpacing: 7,
-                        color: Colors.orange)),
+                        color: Colors.green[900])),
                 Text("Ask Everthing About Farm!",
                     style: TextStyle(
                         fontSize: 10.0,
@@ -75,7 +75,7 @@ class _StartState extends State<Start> {
                     shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(10.0),
                     ),
-                    color: Colors.orangeAccent,
+                    color: Colors.green,
                   ),
                   SizedBox(width: 10),
                   RaisedButton(
@@ -94,7 +94,7 @@ class _StartState extends State<Start> {
                     shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(10.0),
                     ),
-                    color: Colors.orangeAccent,
+                    color: Colors.green,
                   )
                 ],
               ),

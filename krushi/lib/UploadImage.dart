@@ -13,46 +13,61 @@ class UploadImage extends StatefulWidget {
 }
 
 class _UploadImageState extends State<UploadImage> {
-  String title = 'Stepper';
+  String title = 'Upload post';
   StepperType _stepperType = StepperType.vertical;
   int _currentStep = 0;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text(title),
-        centerTitle: true,
-      ),
-      body: Stepper(
-        steps: _stepper(),
-        physics: ClampingScrollPhysics(),
-        currentStep: this._currentStep,
-        type: _stepperType,
-        onStepTapped: (step) {
-          setState(() {
-            this._currentStep = step;
-          });
-        },
-        onStepContinue: () {
-          setState(() {
-            if (this._currentStep < this._stepper().length - 1) {
-              this._currentStep = this._currentStep + 1;
-            } else {
-              print("complete");
-            }
-          });
-        },
-        onStepCancel: () {
-          setState(() {
-            if (this._currentStep > 0) {
-              this._currentStep = this._currentStep - 1;
-            } else {
-              this._currentStep = 0;
-            }
-          });
-        },
-      ),
-    );
+        appBar: AppBar(
+          title: Text(
+            title,
+            style: TextStyle(color: Colors.black),
+          ),
+          centerTitle: true,
+          backgroundColor: Colors.white,
+          iconTheme: IconThemeData(color: Colors.green),
+        ),
+        body: Theme(
+             data: ThemeData(
+                  accentColor: Colors.green,
+                  primarySwatch: Colors.green,
+                  colorScheme: ColorScheme.light(
+                    primary: Colors.green
+                  )
+                ),
+
+          child: Stepper(
+            steps: _stepper(),
+            physics: ClampingScrollPhysics(),
+            currentStep: this._currentStep,
+            
+            type: _stepperType,
+            onStepTapped: (step) {
+              setState(() {
+                this._currentStep = step;
+              });
+            },
+            onStepContinue: () {
+              setState(() {
+                if (this._currentStep < this._stepper().length - 1) {
+                  this._currentStep = this._currentStep + 1;
+                } else {
+                  print("complete");
+                }
+              });
+            },
+            onStepCancel: () {
+              setState(() {
+                if (this._currentStep > 0) {
+                  this._currentStep = this._currentStep - 1;
+                } else {
+                  this._currentStep = 0;
+                }
+              });
+            },
+          ),
+        ));
   }
 
   File _image;

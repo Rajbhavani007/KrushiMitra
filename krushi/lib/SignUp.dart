@@ -66,8 +66,8 @@ class _SignUpState extends State<SignUp> {
         child: Column(children: [
           SizedBox(height: 90.0),
           Container(
-            height: 300,
-            width: 500,
+            height: 200,
+            width: 400,
 //                padding: EdgeInsets.fromLTRB(10.0, 10.0, 10.0, 10.0),
 //                margin: EdgeInsets.fromLTRB(10.0, 40.0, 10.0, 10.0),
             child: Image(
@@ -136,7 +136,7 @@ class _SignUpState extends State<SignUp> {
                           fontSize: 20.0,
                           fontWeight: FontWeight.bold,
                         )),
-                    color: Colors.orange,
+                    color: Colors.green,
                     shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(20.0),
                     ),

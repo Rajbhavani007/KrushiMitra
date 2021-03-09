@@ -6,6 +6,8 @@ class SettingPage extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: Text("Setting"),
+          backgroundColor: Colors.white,
+          iconTheme: IconThemeData(color: Colors.green),
       ),
       body: Center(
         child: Text(

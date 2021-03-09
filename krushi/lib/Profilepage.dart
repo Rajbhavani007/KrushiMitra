@@ -7,8 +7,13 @@ class ProfilePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("Profile"),
-         backgroundColor: Colors.orange,
+        title: Text("Profile",style: TextStyle(color: Colors.black),),
+        backgroundColor: Colors.white,
+          leading: IconButton(
+          icon: Icon(Icons.sort),
+           color: Colors.green,
+          onPressed: () => Scaffold.of(context).openDrawer(),
+        ),
       ),
        drawer: MainDrawer(),
       body: Center(
