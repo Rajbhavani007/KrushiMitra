@@ -54,21 +54,19 @@ class MainDrawer extends StatelessWidget {
                             fit: BoxFit.fill),
                       )),
                   Text(
-                    // "${user.displayName}",
-                    "Raj",
+                    _auth.currentUser.displayName,
                     style: TextStyle(
                       fontWeight: FontWeight.bold,
                       fontSize: 20,
-                      color: Colors.white,
+                      color: Colors.black,
                     ),
                   ),
                   Text(
-                    // "${user.email}",
-                    "@gmail.com",
+                    _auth.currentUser.email,
                     style: TextStyle(
                       fontWeight: FontWeight.bold,
                       fontSize: 15,
-                      color: Colors.white,
+                      color: Colors.black,
                     ),
                   )
                 ],
