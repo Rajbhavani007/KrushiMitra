@@ -21,7 +21,6 @@ class MainDrawer extends StatelessWidget {
           Container(
             width: double.infinity,
             padding: EdgeInsets.all(20),
-          
             color: Colors.blueGrey[100],
             child: Center(
               child: Column(
