@@ -2,6 +2,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_database/firebase_database.dart';
 import "package:flutter/material.dart";
 import 'Posts.dart';
+import 'UploadImage.dart';
 import "main_drawer.dart";
 // import 'package:firebase_database/firebase_database.dart';
 
@@ -61,15 +62,33 @@ class _ForumState extends State<ForumPage> {
           color: Colors.green,
           onPressed: () => Scaffold.of(context).openDrawer(),
         ),
+
+        actions: [
+          Padding(
+            padding: EdgeInsets.only(right: 10.0, top: 10, bottom: 10),
+            child: RaisedButton(
+              textColor: Colors.white,
+              color: Colors.green,
+              child: Text("Creat Post"),
+              onPressed: (){Navigator.push(context,
+                MaterialPageRoute(builder: (context) => UploadImage()));},
+              shape: new RoundedRectangleBorder(
+                borderRadius: new BorderRadius.circular(10.0),
+              ),
+            ),
+          )
+        ],
       ),
       drawer: MainDrawer(),
       body: Container(
         // color: Colors.grey,
         child: postsList.length == 0
-            ? new Text(
-                "No Post Available Here ",
-                textAlign: TextAlign.center,
-              )
+            ? 
+            // new Text(
+            //     "No Post Available Here ",
+            //     textAlign: TextAlign.center,
+            //   ),
+             LinearProgressIndicator(backgroundColor: Colors.green,)
             : new ListView.builder(
                 itemCount: postsList.length,
                 itemBuilder: (BuildContext context, index) {
