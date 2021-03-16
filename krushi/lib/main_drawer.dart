@@ -9,23 +9,6 @@ class MainDrawer extends StatelessWidget {
   User user;
   bool isLogggedin = false;
 
-  // getuser() async {
-  //   User Firebaseuser = await _auth.currentUser;
-  //   await Firebaseuser?.reload();
-  //   Firebaseuser = _auth.currentUser;
-
-  //   if (Firebaseuser != null) {
-  //     setState(() {
-  //       this.user = Firebaseuser;
-  //       this.isLogggedin = true;
-  //     });
-  //   }
-  // }
-
-  // void initState() {
-  //   this.getuser();
-  // }
-
   SignOut() async {
     _auth.signOut();
   }

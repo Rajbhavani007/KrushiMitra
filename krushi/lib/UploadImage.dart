@@ -76,7 +76,6 @@ class _UploadImageState extends State<UploadImage> {
                 currentStep: this._currentStep,
 
                 type: _stepperType,
-                //  type: switchStepsType,
                 onStepTapped: (step) {
                   setState(() {
                     this._currentStep = step;
@@ -114,8 +113,6 @@ class _UploadImageState extends State<UploadImage> {
                           require = true;
                         });
                       }
-                      // print("complete");
-
                     }
                   });
                 },
@@ -137,10 +134,9 @@ class _UploadImageState extends State<UploadImage> {
   }
 
   File _image;
-  String _myValue;
   String myvalue;
   String url;
-  String _myProblem;
+
 
   Future getImage() async {
     final image = await ImagePicker.pickImage(source: ImageSource.gallery);
@@ -178,14 +174,17 @@ class _UploadImageState extends State<UploadImage> {
     String date = formatdate.format(dbTimekey);
     String time = formatTime.format(dbTimekey);
 
+    String _fname  =  fnamecon.text;
+    String _problem  =  probcon.text;
+
     DatabaseReference ref = FirebaseDatabase.instance.reference();
 
     var data = {
-      "Description ": fnamecon.text,
+      "description":_fname,
       "image": url,
       "date": date,
       "time": time,
-      "Problem ": probcon.text,
+      "problem":_problem,
     };
 
     ref.child("posts").push().set(data);
@@ -239,27 +238,7 @@ class _UploadImageState extends State<UploadImage> {
                     errorText: require ? "Value cannot be empty" : null),
               ),
 
-              // TextFormField(
-              //   keyboardType: TextInputType.text,
-              //   autocorrect: false,
-              //   onSaved: (String value) {
-              //     _myValue = value;
-              //   },
-              //   maxLines: 1,
-              //   //initialValue: 'Aseem Wangoo',
-              //   validator: (value) {
-              //     if (value.isEmpty || value.length < 1) {
-              //       return 'Please enter name';
-              //     }
-              //   },
-              //   decoration:  InputDecoration(
-              //       labelText: 'Enter your name',
-              //       hintText: 'Enter a name',
-              //       //filled: true,
-              //       icon: const Icon(Icons.person),
-              //       labelStyle:
-              //        TextStyle(decorationStyle: TextDecorationStyle.solid)),
-              // ),
+              
             ],
           ),
           isActive: _currentStep >= 1,
