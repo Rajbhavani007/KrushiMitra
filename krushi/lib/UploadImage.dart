@@ -1,6 +1,7 @@
 import 'dart:io';
 
 import 'dart:async';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_database/firebase_database.dart';
 import 'package:firebase_storage/firebase_storage.dart';
 import "package:flutter/material.dart";
@@ -136,7 +137,8 @@ class _UploadImageState extends State<UploadImage> {
   File _image;
   String myvalue;
   String url;
-
+  
+  final FirebaseAuth _auth = FirebaseAuth.instance;
 
   Future getImage() async {
     final image = await ImagePicker.pickImage(source: ImageSource.gallery);
@@ -176,6 +178,7 @@ class _UploadImageState extends State<UploadImage> {
 
     String _fname  =  fnamecon.text;
     String _problem  =  probcon.text;
+    String _username = _auth.currentUser.displayName;
 
     DatabaseReference ref = FirebaseDatabase.instance.reference();
 
@@ -185,6 +188,7 @@ class _UploadImageState extends State<UploadImage> {
       "date": date,
       "time": time,
       "problem":_problem,
+      "username":_username,
     };
 
     ref.child("posts").push().set(data);

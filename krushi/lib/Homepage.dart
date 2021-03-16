@@ -266,7 +266,7 @@ Widget option(String text, int index){
           ),
           boxShadow: [kBoxShadow],
         ),
-        padding: EdgeInsets.symmetric(horizontal: 14),
+        padding: EdgeInsets.symmetric(horizontal: 10),
         child: Row(
           children: [
             Text(

@@ -14,7 +14,6 @@ class ForumPage extends StatefulWidget {
 
 class _ForumState extends State<ForumPage> {
   List<Posts> postsList = [];
-  final FirebaseAuth _auth = FirebaseAuth.instance;
 
   @override
   void initState() {
@@ -35,6 +34,7 @@ class _ForumState extends State<ForumPage> {
           DATA[individualKey]["date"],
           DATA[individualKey]["problem"],
           DATA[individualKey]["time"],
+          DATA[individualKey]["username"],
         );
 
         postsList.add(posts);
@@ -64,6 +64,7 @@ class _ForumState extends State<ForumPage> {
       ),
       drawer: MainDrawer(),
       body: Container(
+        // color: Colors.grey,
         child: postsList.length == 0
             ? new Text(
                 "No Post Available Here ",
@@ -78,6 +79,7 @@ class _ForumState extends State<ForumPage> {
                     postsList[index].time,
                     postsList[index].date,
                     postsList[index].problem,
+                    postsList[index].username,
                   );
                 }),
       ),
@@ -85,10 +87,15 @@ class _ForumState extends State<ForumPage> {
   }
 
   Widget PostsUI(String image, String description, String problem, String date,
-      String time) {
+      String time, String username) {
     return new Card(
-      elevation: 10.0,
-      margin: EdgeInsets.all(10.0),
+      elevation: 8.0,
+      shadowColor: Colors.blueGrey[900],
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.circular(15.0),
+      ),
+      margin: EdgeInsets.all(7.0),
+      // margin: EdgeInsets.only(bottom:10),
       child: new Container(
           padding: new EdgeInsets.all(10.0),
           child: new Column(
@@ -100,14 +107,11 @@ class _ForumState extends State<ForumPage> {
                   Padding(
                     padding: const EdgeInsets.only(left: 15, top: 5),
                     child: new Text(
-                      
-                      _auth.currentUser.displayName,
+                      username,
                       style: TextStyle(color: Colors.black, fontSize: 20),
                       textAlign: TextAlign.start,
                     ),
                   ),
-                  
-                  
                   new Text(
                     date,
                     style: Theme.of(context).textTheme.subtitle2,
@@ -115,39 +119,29 @@ class _ForumState extends State<ForumPage> {
                   ),
                 ],
               ),
-
-
               new Row(mainAxisAlignment: MainAxisAlignment.end, children: [
                 Text(
                   time,
                   style: Theme.of(context).textTheme.subtitle2,
                   textAlign: TextAlign.end,
                 ),
-
               ]),
-
               SizedBox(height: 5.0),
-
               new Image.network(
                 image,
                 height: 250,
                 width: 450,
               ),
-             
-
               SizedBox(height: 5.0),
-
-                new Text(
+              new Text(
                 description,
                 style: Theme.of(context).textTheme.subtitle1,
                 textAlign: TextAlign.center,
               ),
-
-              new Text(
-                problem,
-                style: Theme.of(context).textTheme.subtitle1,
-                textAlign: TextAlign.start
-              ),
+              SizedBox(height: 5.0),
+              new Text(problem,
+                  style: Theme.of(context).textTheme.subtitle1,
+                  textAlign: TextAlign.start),
             ],
           )),
     );
