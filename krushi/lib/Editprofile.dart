@@ -58,7 +58,7 @@ class _EditprofileState extends State<Editprofile> {
           Expanded(
               child: SingleChildScrollView(
             child: Container(
-              height: 350,
+              height:400,
               decoration: BoxDecoration(
                   borderRadius: BorderRadius.only(
                       topLeft: Radius.circular(30),
@@ -77,6 +77,7 @@ class _EditprofileState extends State<Editprofile> {
                         decoration: InputDecoration(
                           labelText: 'Name',
                           icon: Icon(Icons.person),
+                          
                           border: OutlineInputBorder(),
                         ),
                       ),
@@ -89,7 +90,7 @@ class _EditprofileState extends State<Editprofile> {
                       child: TextFormField(
                         decoration: InputDecoration(
                           labelText: 'Email',
-                          icon: Icon(Icons.person),
+                          icon: Icon(Icons.email),
                           border: OutlineInputBorder(),
                         ),
                       ),
@@ -102,7 +103,7 @@ class _EditprofileState extends State<Editprofile> {
                       child: TextFormField(
                         decoration: InputDecoration(
                           labelText: 'Mobile Number',
-                          icon: Icon(Icons.person),
+                          icon: Icon(Icons.phone),
                           border: OutlineInputBorder(),
                         ),
                       ),
@@ -117,6 +118,7 @@ class _EditprofileState extends State<Editprofile> {
                           fontSize: 20.0,
                           fontWeight: FontWeight.bold,
                         )),
+                        onPressed: (){print("Save profile");},
                     color: Colors.green,
                     shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(20.0),

@@ -36,7 +36,6 @@ dependencies:
   fluttertoast: ^7.1.6
   firebase_database:
   firebase_storage:
-  
 
 dev_dependencies:
   flutter_test:
