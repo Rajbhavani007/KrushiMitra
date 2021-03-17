@@ -1,16 +1,12 @@
-// import 'package:animated_text_kit/animated_text_kit.dart';
+import 'package:flutter/material.dart';
 
-import 'package:firebase_auth/firebase_auth.dart';
-import "package:flutter/material.dart";
-import 'package:krushi/Editprofile.dart';
-import 'package:krushi/edit.dart';
-import 'main.dart';
-import "main_drawer.dart";
-
-class ProfilePage extends StatelessWidget {
+class edit extends StatefulWidget {
   @override
-  final FirebaseAuth _auth = FirebaseAuth.instance;
+  _editState createState() => _editState();
+}
 
+class _editState extends State<edit> {
+  @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
@@ -25,7 +21,6 @@ class ProfilePage extends StatelessWidget {
           onPressed: () => Scaffold.of(context).openDrawer(),
         ),
       ),
-      drawer: MainDrawer(),
       body: Column(
         children: <Widget>[
           Padding(
@@ -84,7 +79,7 @@ class ProfilePage extends StatelessWidget {
                         child: Padding(
                           padding: const EdgeInsets.all(8.0),
                           child: Text(
-                            _auth.currentUser.displayName,
+                            "hey",
                             style: TextStyle(color: Colors.white70),
                           ),
                         ),
@@ -105,7 +100,7 @@ class ProfilePage extends StatelessWidget {
                         child: Padding(
                           padding: const EdgeInsets.all(8.0),
                           child: Text(
-                            _auth.currentUser.email,
+                            "heyyyy",
                             style: TextStyle(color: Colors.white70),
                           ),
                         ),
@@ -140,14 +135,6 @@ class ProfilePage extends StatelessWidget {
                   SizedBox(height: 40.0),
                   RaisedButton(
                     padding: EdgeInsets.fromLTRB(70, 10, 70, 10),
-                    onPressed: () {
-                      Navigator.pop(context);
-                      Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                              builder: (BuildContext context) =>
-                                  Editprofile()));
-                    },
                     child: Text('Edit',
                         style: TextStyle(
                           color: Colors.white,

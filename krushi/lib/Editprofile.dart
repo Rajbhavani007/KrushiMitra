@@ -1,21 +1,17 @@
-// import 'package:animated_text_kit/animated_text_kit.dart';
-
-import 'package:firebase_auth/firebase_auth.dart';
 import "package:flutter/material.dart";
-import 'package:krushi/Editprofile.dart';
-import 'package:krushi/edit.dart';
-import 'main.dart';
-import "main_drawer.dart";
 
-class ProfilePage extends StatelessWidget {
+class Editprofile extends StatefulWidget {
   @override
-  final FirebaseAuth _auth = FirebaseAuth.instance;
+  _EditprofileState createState() => _EditprofileState();
+}
 
+class _EditprofileState extends State<Editprofile> {
+  @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         title: Text(
-          "Profile",
+          "Edit Profile",
           style: TextStyle(color: Colors.black),
         ),
         backgroundColor: Colors.white,
@@ -25,7 +21,6 @@ class ProfilePage extends StatelessWidget {
           onPressed: () => Scaffold.of(context).openDrawer(),
         ),
       ),
-      drawer: MainDrawer(),
       body: Column(
         children: <Widget>[
           Padding(
@@ -78,77 +73,45 @@ class ProfilePage extends StatelessWidget {
                   Padding(
                     padding: const EdgeInsets.fromLTRB(20, 25, 20, 4),
                     child: Container(
-                      height: 40,
-                      child: Align(
-                        alignment: Alignment.centerLeft,
-                        child: Padding(
-                          padding: const EdgeInsets.all(8.0),
-                          child: Text(
-                            _auth.currentUser.displayName,
-                            style: TextStyle(color: Colors.white70),
-                          ),
+                      child: TextFormField(
+                        decoration: InputDecoration(
+                          labelText: 'Name',
+                          icon: Icon(Icons.person),
+                          border: OutlineInputBorder(),
                         ),
                       ),
-                      decoration: BoxDecoration(
-                          borderRadius: BorderRadius.all(Radius.circular(20)),
-                          border:
-                              Border.all(width: 1.0, color: Colors.white70)),
                     ),
                   ),
                   SizedBox(height: 10.0),
                   Padding(
                     padding: const EdgeInsets.fromLTRB(20, 5, 20, 4),
                     child: Container(
-                      height: 40,
-                      child: Align(
-                        alignment: Alignment.centerLeft,
-                        child: Padding(
-                          padding: const EdgeInsets.all(8.0),
-                          child: Text(
-                            _auth.currentUser.email,
-                            style: TextStyle(color: Colors.white70),
-                          ),
+                      child: TextFormField(
+                        decoration: InputDecoration(
+                          labelText: 'Email',
+                          icon: Icon(Icons.person),
+                          border: OutlineInputBorder(),
                         ),
                       ),
-                      decoration: BoxDecoration(
-                          borderRadius: BorderRadius.all(Radius.circular(20)),
-                          border:
-                              Border.all(width: 1.0, color: Colors.white70)),
                     ),
                   ),
                   SizedBox(height: 10.0),
                   Padding(
                     padding: const EdgeInsets.fromLTRB(20, 5, 20, 4),
                     child: Container(
-                      height: 40,
-                      child: Align(
-                        alignment: Alignment.centerLeft,
-                        child: Padding(
-                          padding: const EdgeInsets.all(8.0),
-                          child: Text(
-                            'Phone number',
-                            style: TextStyle(color: Colors.white70),
-                          ),
+                      child: TextFormField(
+                        decoration: InputDecoration(
+                          labelText: 'Mobile Number',
+                          icon: Icon(Icons.person),
+                          border: OutlineInputBorder(),
                         ),
                       ),
-                      decoration: BoxDecoration(
-                          borderRadius: BorderRadius.all(Radius.circular(20)),
-                          border:
-                              Border.all(width: 1.0, color: Colors.white70)),
                     ),
                   ),
                   SizedBox(height: 40.0),
                   RaisedButton(
                     padding: EdgeInsets.fromLTRB(70, 10, 70, 10),
-                    onPressed: () {
-                      Navigator.pop(context);
-                      Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                              builder: (BuildContext context) =>
-                                  Editprofile()));
-                    },
-                    child: Text('Edit',
+                    child: Text('Save',
                         style: TextStyle(
                           color: Colors.white,
                           fontSize: 20.0,
