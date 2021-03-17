@@ -16,9 +16,9 @@ class _EditprofileState extends State<Editprofile> {
         ),
         backgroundColor: Colors.white,
         leading: IconButton(
-          icon: Icon(Icons.sort),
+          icon: Icon(Icons.arrow_back),
           color: Colors.green,
-          onPressed: () => Scaffold.of(context).openDrawer(),
+          onPressed: () => Navigator.pop(context),
         ),
       ),
       body: Column(
@@ -58,7 +58,7 @@ class _EditprofileState extends State<Editprofile> {
           Expanded(
               child: SingleChildScrollView(
             child: Container(
-              height:400,
+              height: 400,
               decoration: BoxDecoration(
                   borderRadius: BorderRadius.only(
                       topLeft: Radius.circular(30),
@@ -77,7 +77,6 @@ class _EditprofileState extends State<Editprofile> {
                         decoration: InputDecoration(
                           labelText: 'Name',
                           icon: Icon(Icons.person),
-                          
                           border: OutlineInputBorder(),
                         ),
                       ),
@@ -118,7 +117,9 @@ class _EditprofileState extends State<Editprofile> {
                           fontSize: 20.0,
                           fontWeight: FontWeight.bold,
                         )),
-                        onPressed: (){print("Save profile");},
+                    onPressed: () {
+                      print("Save profile");
+                    },
                     color: Colors.green,
                     shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(20.0),
