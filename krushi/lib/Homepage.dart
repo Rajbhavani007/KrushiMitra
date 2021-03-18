@@ -238,6 +238,7 @@ class _HomePageState extends State<HomePage> {
           foregroundColor: Colors.black,
           backgroundColor: Colors.green[300],
           onPressed: () {
+            Navigator.pop(context);
             Navigator.push(context,
                 MaterialPageRoute(builder: (context) => UploadImage()));
           },

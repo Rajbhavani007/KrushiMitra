@@ -67,7 +67,9 @@ class _MyHomePageState extends State<MyHomePage> {
         initialActiveIndex: 0,
         onTap: (int index) {
           setState(() {
+            
             _selectpage = index;
+            
           });
         },
       ),

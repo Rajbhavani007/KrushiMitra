@@ -3,8 +3,6 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import "package:flutter/material.dart";
 import 'package:krushi/Editprofile.dart';
-import 'package:krushi/edit.dart';
-import 'main.dart';
 import "main_drawer.dart";
 
 class ProfilePage extends StatelessWidget {
@@ -15,7 +13,7 @@ class ProfilePage extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: Text(
-          "Profile",
+          "Profilee",
           style: TextStyle(color: Colors.black),
         ),
         backgroundColor: Colors.white,

@@ -81,7 +81,7 @@ class _ForumState extends State<ForumPage> {
       ),
       drawer: MainDrawer(),
       body: Container(
-        // color: Colors.grey,
+        color: Colors.black,
         child: postsList.length == 0
             ? 
             // new Text(
@@ -109,6 +109,7 @@ class _ForumState extends State<ForumPage> {
       String time, String username) {
     return new Card(
       elevation: 8.0,
+      color:Colors.grey[200],
       shadowColor: Colors.blueGrey[900],
       shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.circular(15.0),

@@ -1,4 +1,5 @@
 import "package:flutter/material.dart";
+import 'package:krushi/Profilepage.dart';
 
 class Editprofile extends StatefulWidget {
   @override
@@ -15,12 +16,29 @@ class _EditprofileState extends State<Editprofile> {
           style: TextStyle(color: Colors.black),
         ),
         backgroundColor: Colors.white,
-        leading: IconButton(
-          icon: Icon(Icons.arrow_back),
-          color: Colors.green,
-          onPressed: () => Navigator.pop(context),
+        // leading: IconButton(
+        //   icon: Icon(Icons.arrow_back),
+        //   color: Colors.green,
+
+        // ),
+        leading: GestureDetector(
+          onTap: () {
+            // Navigator.pop(context);
+            Navigator.push(context, MaterialPageRoute(builder: (context) => ProfilePage()));
+          },
+          child: Icon(
+            Icons.arrow_back_ios,
+            color: Colors.black,
+          ),
         ),
       ),
+
+      //  appBar: AppBar(
+      //   title: Text("Setting",style: TextStyle(color: Colors.black),),
+      //     backgroundColor: Colors.white,
+      //     iconTheme: IconThemeData(color: Colors.green),
+      // ),
+     
       body: Column(
         children: <Widget>[
           Padding(

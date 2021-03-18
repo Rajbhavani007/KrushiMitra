@@ -1,6 +1,7 @@
 import 'dart:io';
 
 import 'dart:async';
+import 'package:basic_utils/basic_utils.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_database/firebase_database.dart';
 import 'package:firebase_storage/firebase_storage.dart';
@@ -14,6 +15,7 @@ import 'package:intl/intl.dart';
 
 import 'package:krushi/main.dart';
 // import 'package:basic_utils/basic_utils.dart';
+
 
 
 
@@ -146,26 +148,13 @@ class _UploadImageState extends State<UploadImage> {
 
   Future getImage() async {
     final image = await ImagePicker.pickImage(source: ImageSource.gallery);
-
-    // Future getImage() async {
-    // final image = await ImagePicker.pickImage(source: ImageSource.gallery);
-
-  //   Future<void> getImage() async {
-  //   File imageFileFromGallery = await ImagePicker.pickImage(source: ImageSource.gallery);
-  //   if (imageFileFromGallery != null) {
-  //     File cropImageFile = await Utils.cropImageFile(imageFileFromGallery);//await cropImageFile(imageFileFromGallery);
-  //     if (cropImageFile != null) {
-  //       setState(() {
-  //         _image = cropImageFile;
-  //       });
-  //     }
-  //   }
-  // }
-
     setState(() {
       _image = image;
     });
   }
+
+
+ 
 
   void uploadStatusImage() async {
     final Reference postImageRef =

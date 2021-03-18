@@ -141,6 +141,7 @@ class _editState extends State<edit> {
                           fontSize: 20.0,
                           fontWeight: FontWeight.bold,
                         )),
+                        onPressed: (){},
                     color: Colors.green,
                     shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(20.0),
