@@ -240,7 +240,7 @@ class _UploadImageState extends State<UploadImage> {
           isActive: _currentStep >= 0,
           state: StepState.disabled),
       Step(
-          title: Text('Product'),
+          title: Text('TitlE'),
           content: Column(
             children: <Widget>[
               TextFormField(

@@ -1,4 +1,3 @@
-import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_database/firebase_database.dart';
 import "package:flutter/material.dart";
 import 'Posts.dart';
@@ -70,8 +69,10 @@ class _ForumState extends State<ForumPage> {
               textColor: Colors.white,
               color: Colors.green,
               child: Text("Creat Post"),
-              onPressed: (){Navigator.push(context,
-                MaterialPageRoute(builder: (context) => UploadImage()));},
+              onPressed: () {
+                Navigator.push(context,
+                    MaterialPageRoute(builder: (context) => UploadImage()));
+              },
               shape: new RoundedRectangleBorder(
                 borderRadius: new BorderRadius.circular(10.0),
               ),
@@ -81,14 +82,11 @@ class _ForumState extends State<ForumPage> {
       ),
       drawer: MainDrawer(),
       body: Container(
-        color: Colors.black,
+        color: Colors.white,
         child: postsList.length == 0
-            ? 
-            // new Text(
-            //     "No Post Available Here ",
-            //     textAlign: TextAlign.center,
-            //   ),
-             LinearProgressIndicator(backgroundColor: Colors.green,)
+            ? LinearProgressIndicator(
+                backgroundColor: Colors.green,
+              )
             : new ListView.builder(
                 itemCount: postsList.length,
                 itemBuilder: (BuildContext context, index) {
@@ -109,7 +107,7 @@ class _ForumState extends State<ForumPage> {
       String time, String username) {
     return new Card(
       elevation: 8.0,
-      color:Colors.grey[200],
+      color: Colors.grey[200],
       shadowColor: Colors.blueGrey[900],
       shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.circular(15.0),
@@ -125,17 +123,35 @@ class _ForumState extends State<ForumPage> {
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   Padding(
-                    padding: const EdgeInsets.only(left: 15, top: 5),
+                    padding: const EdgeInsets.only(left:10),
+                    child:
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.start,
+                      children: [
+                        Container(
+                          width:35,
+                          height: 35,
+                          margin: EdgeInsets.only(top:0),
+                          decoration: BoxDecoration(
+                            shape: BoxShape.circle,
+                            image: DecorationImage(
+                                image: AssetImage("images/raj.jpg"),
+                                fit: BoxFit.fill),
+                          )),
+                          Container(
                     child: new Text(
-                      username,
-                      style: TextStyle(color: Colors.black, fontSize: 20),
-                      textAlign: TextAlign.start,
+                        username,
+                        style: TextStyle(color: Colors.black, fontSize: 20),
+                        textAlign: TextAlign.start,
+                      ),
+                  ),
+                      ],
                     ),
                   ),
                   new Text(
                     date,
                     style: Theme.of(context).textTheme.subtitle2,
-                    textAlign: TextAlign.center,
+                    textAlign: TextAlign.end,
                   ),
                 ],
               ),
@@ -149,7 +165,7 @@ class _ForumState extends State<ForumPage> {
               SizedBox(height: 5.0),
               new Image.network(
                 image,
-                height: 250,
+                height:250,
                 width: 450,
               ),
               SizedBox(height: 5.0),
@@ -162,6 +178,54 @@ class _ForumState extends State<ForumPage> {
               new Text(problem,
                   style: Theme.of(context).textTheme.subtitle1,
                   textAlign: TextAlign.start),
+              SizedBox(height: 5.0),
+
+              Container(child: Row(children: [
+                Container(
+                width: 150,
+                  child: Column(
+                children: [
+                  RaisedButton(
+                    onPressed: () {print("Like");},
+                    child: Column(
+                      children: <Widget>[
+                        Row(children: [
+                          Text('Like '),
+                          Icon(Icons.thumb_up)
+                        ]),
+                      ],
+                    ),
+                  ),
+                ],
+              )),
+
+             Padding(
+               padding: const EdgeInsets.only(left: 10),
+               child: Container(
+                  width: 150,
+                    child: Column(
+                  children: [
+                    RaisedButton(
+                      onPressed: () {print("Comment");},
+                      child: Column(
+                        children: <Widget>[
+                          Row(children: [
+                            Text('Comment '),
+                            Icon(Icons.comment)
+                          ]),
+                        ],
+                      ),
+                    ),
+                  ],
+                )),
+             ),
+
+
+              ],),)
+
+              
+
+
             ],
           )),
     );

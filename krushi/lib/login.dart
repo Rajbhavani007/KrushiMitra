@@ -13,7 +13,7 @@ class login extends StatefulWidget {
 class _loginState extends State<login> {
   final FirebaseAuth _auth = FirebaseAuth.instance;
   final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
-
+ bool isuploading = false;
   String _email, _password;
 
   @override
@@ -38,15 +38,17 @@ class _loginState extends State<login> {
           );
         });
   }
-
   @override
   Widget build(BuildContext context) {
+   
     return Scaffold(
         body: SingleChildScrollView(
       child: Container(
         child: Column(children: [
+          
           SizedBox(height: 90.0),
           Container(
+            
             height: 300,
             width: 500,
 //                padding: EdgeInsets.fromLTRB(10.0, 10.0, 10.0, 10.0),
@@ -59,12 +61,14 @@ class _loginState extends State<login> {
             ),
           ),
           Container(
+            
             margin: EdgeInsetsDirectional.fromSTEB(30, 0, 30, 0),
             child: Form(
               key: _formKey,
               child: Column(
                 children: [
                   SizedBox(height: 30.0),
+                  
                   Container(
                     child: TextFormField(
                       decoration: InputDecoration(
@@ -108,6 +112,7 @@ class _loginState extends State<login> {
                         if (user != null) {
                           print("In1");
                           Navigator.pop(context);
+                          //  isuploading ? null : () => handleSubmit1();
                           Navigator.push(
                               context,
                               MaterialPageRoute(
