@@ -56,10 +56,12 @@ class _MyHomePageState extends State<MyHomePage> {
         backgroundColor: Colors.white70,
         activeColor: Colors.green,
         items: [
+          
           TabItem(
             icon: Icons.home,
             title: 'Home',
           ),
+          
           TabItem(icon: Icons.forum, title: 'Forum'),
           TabItem(icon: Icons.search, title: 'Search'),
           TabItem(icon: Icons.person, title: 'Profile'),

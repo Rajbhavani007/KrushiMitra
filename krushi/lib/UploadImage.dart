@@ -197,12 +197,15 @@ class _UploadImageState extends State<UploadImage> {
       "time": time,
       "problem":_problem,
       "username":_username,
+      
+    
     };
 
     ref.child("posts").push().set(data);
   }
 
   void goToforumpage() {
+    Navigator.pop(context);
     Navigator.push(context, MaterialPageRoute(builder: (context) => MyApp()));
   }
 
@@ -240,7 +243,7 @@ class _UploadImageState extends State<UploadImage> {
           isActive: _currentStep >= 0,
           state: StepState.disabled),
       Step(
-          title: Text('TitlE'),
+          title: Text('Title'),
           content: Column(
             children: <Widget>[
               TextFormField(
