@@ -1,5 +1,3 @@
-
-
 import 'dart:io';
 import "package:flutter/material.dart";
 
@@ -63,176 +61,186 @@ class _HomePageState extends State<HomePage> {
 // krushiiiiiii
   @override
   Widget build(BuildContext context) {
-
     return WillPopScope(
       onWillPop: () {
         exit(0);
       },
       child: Scaffold(
         appBar: AppBar(
-          title: Text("Home Page",style: TextStyle(color:Colors.black,
-        fontWeight:FontWeight.bold ) ,),
+          title: Text(
+            "Home Page",
+            style: TextStyle(color: Colors.black, fontWeight: FontWeight.bold),
+          ),
           backgroundColor: Colors.white,
           // iconTheme: IconThemeData(color: Colors.green),
-        leading: IconButton(
-          icon: Icon(Icons.sort),
-           color: Colors.green,
-          onPressed: () => Scaffold.of(context).openDrawer(),
-        ),
+          leading: IconButton(
+            icon: Icon(Icons.sort),
+            color: Colors.green,
+            onPressed: () => Scaffold.of(context).openDrawer(),
+          ),
         ),
         drawer: MainDrawer(),
-      body:
-       SingleChildScrollView(
-        physics: BouncingScrollPhysics(),
-        child: Column(
-          children: [
-
-            Padding(
-              padding: EdgeInsets.symmetric(horizontal: 16),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                       SizedBox(
-                    height: 20,
-                  ),
-
-                  Text('KrushiMitras Products',
-                  style:
-                    TextStyle(fontSize: 20.0,fontWeight: FontWeight.bold),
-                  ),
-
-
-
-                  buildTextSubTitleVariation1('Provides solution from seeds to market'),
-
-                  SizedBox(
-                    height: 25,
-                  ),
-
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-
-                      option('Fertilizers', 0),
-                      //SizedBox(
-                        //width: 8,
-                      //),
-                      option('Pestisides', 1),
-                      //SizedBox(
-                        //width: 8,
-                      //),
-                      option('Insectisides', 2),
-
-
-
-
-                    ],
-                  ),
-
-                ],
-              ),
-            ),
-           SizedBox(
-             height: 26,
-           ),
-           Container(
-               padding: EdgeInsets.symmetric(horizontal: 16),
-             child: Row(
-               crossAxisAlignment: CrossAxisAlignment.start,
-               children: [
-
-                 buildTextTitleVariation2('Premium', false),
-
-                 SizedBox(
-                   width: 8,
-                 ),
-
-                 buildTextTitleVariation2('Seeds', false),
-               ],)
-
-           ),
-
-
-            Container(
-
-              padding: EdgeInsets.only(left: 260),
-                child: Row(
-
+        body: SingleChildScrollView(
+          physics: BouncingScrollPhysics(),
+          child: Column(
+            children: [
+              Padding(
+                padding: EdgeInsets.symmetric(horizontal: 16),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    Text('View All',
-                    style: TextStyle(
-                      color: Colors.grey[400],
-                      fontWeight: FontWeight.bold
-                    ),),
-
+                    SizedBox(
+                      height: 20,
+                    ),
+                    Text(
+                      'KrushiMitras Products',
+                      style: TextStyle(
+                          fontSize: 20.0, fontWeight: FontWeight.bold),
+                    ),
+                    buildTextSubTitleVariation1(
+                        'Provides solution from seeds to market'),
+                    SizedBox(
+                      height: 25,
+                    ),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        option('Fertilizers', 0),
+                        //SizedBox(
+                        //width: 8,
+                        //),
+                        option('Pestisides', 1),
+                        //SizedBox(
+                        //width: 8,
+                        //),
+                        option('Insectisides', 2),
+                      ],
+                    ),
                   ],
                 ),
-            ),
-
-            SizedBox(
-              height: 4,
-            ),
-            Container(
-              height: 350,
-              child: ListView(
-                physics: BouncingScrollPhysics(),
-                scrollDirection: Axis.horizontal,
-                children: buildData(),
               ),
-            ),
-
-            SizedBox(
-              height: 16,
-            ),
-
-            Padding(
-              padding: EdgeInsets.symmetric(horizontal: 16),
-              child: Row(
-                children: [
-
-                  buildTextTitleVariation2('Popular', false),
-
-                  SizedBox(
-                    width: 8,
-                  ),
-
-                  buildTextTitleVariation2('Fertilizers', false),
-
-                ],
+              SizedBox(
+                height: 26,
               ),
-
-            ),
-            SizedBox(
-              height: 0,
-            ),
-            Container(
-              padding: EdgeInsets.only(left: 260),
-              child: Row(
-
-                children: [
-                  Text('View All',
-                    style: TextStyle(
-                        color: Colors.grey[400],
-                        fontWeight: FontWeight.bold
-                    ),),
-
-                ],
+              Container(
+                  padding: EdgeInsets.symmetric(horizontal: 16),
+                  child: Row(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      buildTextTitleVariation2('Premium', false),
+                      SizedBox(
+                        width: 8,
+                      ),
+                      buildTextTitleVariation2('Seeds', false),
+                    ],
+                  )),
+              Container(
+                padding: EdgeInsets.only(left: 260),
+                child: Row(
+                  children: [
+                    Text(
+                      'View All',
+                      style: TextStyle(
+                          color: Colors.grey[400], fontWeight: FontWeight.bold),
+                    ),
+                  ],
+                ),
               ),
-            ),
-
-
-            Container(
-              height: 190,
-              child: PageView(
-                physics: BouncingScrollPhysics(),
-                children: buildPopulars(),
+              SizedBox(
+                height: 4,
               ),
-            ),
-
-          ],
+              Container(
+                height: 350,
+                child: ListView(
+                  physics: BouncingScrollPhysics(),
+                  scrollDirection: Axis.horizontal,
+                  children: buildData(),
+                ),
+              ),
+              SizedBox(
+                height: 16,
+              ),
+              Padding(
+                padding: EdgeInsets.symmetric(horizontal: 16),
+                child: Row(
+                  children: [
+                    buildTextTitleVariation2('Popular', false),
+                    SizedBox(
+                      width: 8,
+                    ),
+                    buildTextTitleVariation2('Fertilizers', false),
+                  ],
+                ),
+              ),
+              SizedBox(
+                height: 0,
+              ),
+              Container(
+                padding: EdgeInsets.only(left: 260),
+                child: Row(
+                  children: [
+                    Text(
+                      'View All',
+                      style: TextStyle(
+                          color: Colors.grey[400], fontWeight: FontWeight.bold),
+                    ),
+                  ],
+                ),
+              ),
+              Container(
+                height: 190,
+                child: PageView(
+                  physics: BouncingScrollPhysics(),
+                  children: buildPopulars(),
+                ),
+              ),
+              SizedBox(
+                height: 0,
+              ),
+              Padding(
+                padding: EdgeInsets.symmetric(horizontal: 16),
+                child: Row(
+                  children: [
+                    buildTextTitleVariation2('Popular', false),
+                    SizedBox(
+                      width: 8,
+                    ),
+                    buildTextTitleVariation2('Fertilizers', false),
+                  ],
+                ),
+              ),
+              Container(
+                height: 190,
+                child: PageView(
+                  physics: BouncingScrollPhysics(),
+                  children: buildPopulars(),
+                ),
+              ),
+              SizedBox(
+                height: 0,
+              ),
+              Padding(
+                padding: EdgeInsets.symmetric(horizontal: 16),
+                child: Row(
+                  children: [
+                    buildTextTitleVariation2('Popular', false),
+                    SizedBox(
+                      width: 8,
+                    ),
+                    buildTextTitleVariation2('Fertilizers', false),
+                  ],
+                ),
+              ),
+              Container(
+                height: 190,
+                child: PageView(
+                  physics: BouncingScrollPhysics(),
+                  children: buildPopulars(),
+                ),
+              ),
+            ],
+          ),
         ),
-      ),
-
         floatingActionButton: FloatingActionButton(
           child: Icon(Icons.add),
           foregroundColor: Colors.black,
@@ -248,9 +256,7 @@ class _HomePageState extends State<HomePage> {
     );
   }
 
-
-
-Widget option(String text, int index){
+  Widget option(String text, int index) {
     List<bool> optionSelected = [true, false, false];
     return GestureDetector(
       onTap: () {
@@ -284,7 +290,7 @@ Widget option(String text, int index){
     );
   }
 
-  List<Widget> buildData([Products product]){
+  List<Widget> buildData([Products product]) {
     List<Widget> list = [];
     for (var i = 0; i < getProducts().length; i++) {
       list.add(buildDatas(getProducts()[i], i));
@@ -292,10 +298,11 @@ Widget option(String text, int index){
     return list;
   }
 
-  Widget buildDatas(Products products, int index){
+  Widget buildDatas(Products products, int index) {
     return GestureDetector(
       onTap: () {
-        Navigator.push(context,
+        Navigator.push(
+          context,
           MaterialPageRoute(builder: (context) => Detail(products: products)),
         );
       },
@@ -307,13 +314,13 @@ Widget option(String text, int index){
           ),
           boxShadow: [kBoxShadow],
         ),
-        margin: EdgeInsets.only(right: 16, left: index == 0 ? 16 : 0, bottom: 16, top: 8),
+        margin: EdgeInsets.only(
+            right: 16, left: index == 0 ? 16 : 0, bottom: 16, top: 8),
         padding: EdgeInsets.all(16),
         width: 220,
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: <Widget>[
-
             Expanded(
               child: Hero(
                 tag: products.image,
@@ -327,34 +334,27 @@ Widget option(String text, int index){
                 ),
               ),
             ),
-
             SizedBox(
               height: 8,
             ),
-
             buildProductsTitle(products.title),
-
             buildTextSubTitleVariation2(products.description),
-
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-
                 buildPrices(products.price.toString() + " Rs"),
-
                 Icon(
                   Icons.favorite_border,
                 )
               ],
             ),
-
           ],
         ),
       ),
     );
   }
 
-  List<Widget> buildPopulars(){
+  List<Widget> buildPopulars() {
     List<Widget> list = [];
     for (var i = 0; i < getProducts().length; i++) {
       list.add(buildPopular(getProducts()[i]));
@@ -362,7 +362,7 @@ Widget option(String text, int index){
     return list;
   }
 
-  Widget buildPopular(Products products){
+  Widget buildPopular(Products products) {
     return Container(
       margin: EdgeInsets.all(16),
       decoration: BoxDecoration(
@@ -374,7 +374,6 @@ Widget option(String text, int index){
       ),
       child: Row(
         children: [
-
           Container(
             height: 140,
             width: 100,
@@ -385,7 +384,6 @@ Widget option(String text, int index){
               ),
             ),
           ),
-
           Expanded(
             child: Padding(
               padding: EdgeInsets.symmetric(horizontal: 16),
@@ -393,29 +391,21 @@ Widget option(String text, int index){
                 crossAxisAlignment: CrossAxisAlignment.start,
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-
                   buildProductsTitle(products.title),
-
                   buildProductsSubTitle(products.description),
-
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
-
                       buildPrices(products.price.toString() + " Rs"),
-
                       Icon(
                         Icons.favorite_border,
                       )
-
                     ],
                   ),
-
                 ],
               ),
             ),
           ),
-
         ],
       ),
     );

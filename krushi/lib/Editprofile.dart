@@ -24,7 +24,8 @@ class _EditprofileState extends State<Editprofile> {
         leading: GestureDetector(
           onTap: () {
             // Navigator.pop(context);
-            Navigator.push(context, MaterialPageRoute(builder: (context) => ProfilePage()));
+            Navigator.push(context,
+                MaterialPageRoute(builder: (context) => ProfilePage()));
           },
           child: Icon(
             Icons.arrow_back_ios,
@@ -38,7 +39,7 @@ class _EditprofileState extends State<Editprofile> {
       //     backgroundColor: Colors.white,
       //     iconTheme: IconThemeData(color: Colors.green),
       // ),
-     
+
       body: Column(
         children: <Widget>[
           Padding(
@@ -136,7 +137,7 @@ class _EditprofileState extends State<Editprofile> {
                           fontWeight: FontWeight.bold,
                         )),
                     onPressed: () {
-                      print("Save profile");
+                      print("Update profile");
                     },
                     color: Colors.green,
                     shape: RoundedRectangleBorder(

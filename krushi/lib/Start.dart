@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_signin_button/flutter_signin_button.dart';
+import 'package:google_sign_in/google_sign_in.dart';
 import 'SignUp.dart';
+
 import 'login.dart';
+import 'main.dart';
 
 class Start extends StatefulWidget {
   @override
@@ -9,10 +12,24 @@ class Start extends StatefulWidget {
 }
 
 class _StartState extends State<Start> {
+  bool _isloggedIn = false;
+  GoogleSignIn _googleSignIn = GoogleSignIn(scopes: ['email']);
+
+  loginwithgoogle() async {
+    try {
+      await _googleSignIn.signIn();
+      setState(() {
+        _isloggedIn = true;
+      });
+    } catch (err) {
+      print(err);
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     return SafeArea(
-          child: Scaffold(
+      child: Scaffold(
           body: Container(
         child: Column(
           children: [
@@ -105,7 +122,9 @@ class _StartState extends State<Start> {
             SignInButton(
               Buttons.Google,
               text: "Sign up with Google",
-              onPressed: () {},
+              onPressed: () {
+                loginwithgoogle();
+              },
             )
           ],
         ),

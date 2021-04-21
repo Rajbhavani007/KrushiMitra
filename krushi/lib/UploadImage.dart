@@ -16,9 +16,6 @@ import 'package:intl/intl.dart';
 import 'package:krushi/main.dart';
 // import 'package:basic_utils/basic_utils.dart';
 
-
-
-
 class UploadImage extends StatefulWidget {
   @override
   _UploadImageState createState() => _UploadImageState();
@@ -77,17 +74,14 @@ class _UploadImageState extends State<UploadImage> {
               isuploading ? LinearProgressIndicator() : Text(" "),
               Stepper(
                 steps: _stepper(),
-
                 physics: ClampingScrollPhysics(),
                 currentStep: this._currentStep,
-
                 type: _stepperType,
                 onStepTapped: (step) {
                   setState(() {
                     this._currentStep = step;
                   });
                 },
-
                 onStepContinue: () {
                   setState(() {
                     if (this._currentStep < this._stepper().length - 1) {
@@ -143,7 +137,6 @@ class _UploadImageState extends State<UploadImage> {
   String myvalue;
   String url;
 
-  
   final FirebaseAuth _auth = FirebaseAuth.instance;
 
   Future getImage() async {
@@ -153,9 +146,6 @@ class _UploadImageState extends State<UploadImage> {
     });
   }
 
-
- 
-
   void uploadStatusImage() async {
     final Reference postImageRef =
         FirebaseStorage.instance.ref().child("Post Image");
@@ -164,10 +154,9 @@ class _UploadImageState extends State<UploadImage> {
 
     final UploadTask uploadTask =
         postImageRef.child(timekey.toString() + ".jpg").putFile(_image);
-   
 
     var Imageurl = await (await uploadTask).ref.getDownloadURL();
-    
+
     // // print("product name = " + myvalue);
     url = Imageurl.toString();
     print("Image url = " + url);
@@ -184,19 +173,19 @@ class _UploadImageState extends State<UploadImage> {
     String date = formatdate.format(dbTimekey);
     String time = formatTime.format(dbTimekey);
 
-    String _fname  =  fnamecon.text;
-    String _problem  =  probcon.text;
+    String _fname = fnamecon.text;
+    String _problem = probcon.text;
     String _username = _auth.currentUser.displayName;
 
     DatabaseReference ref = FirebaseDatabase.instance.reference();
 
     var data = {
-      "description":_fname,
+      "description": _fname,
       "image": url,
       "date": date,
       "time": time,
-      "problem":_problem,
-      "username":_username,
+      "problem": _problem,
+      "username": _username,
     };
 
     ref.child("posts").push().set(data);
@@ -249,8 +238,6 @@ class _UploadImageState extends State<UploadImage> {
                     labelText: 'First name',
                     errorText: require ? "Value cannot be empty" : null),
               ),
-
-              
             ],
           ),
           isActive: _currentStep >= 1,

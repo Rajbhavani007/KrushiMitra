@@ -27,7 +27,7 @@ dependencies:
   basic_utils:
   convex_bottom_bar:
   animated_text_kit : ^3.1.0
-  
+  google_sign_in: ^4.0.2
   share : ^0.6.5
   image_picker: ^0.6.7+22
   firebase_core: ^0.7.0
