@@ -22,6 +22,7 @@ class _HomePageState extends State<HomePage> {
   final FirebaseAuth _auth = FirebaseAuth.instance;
   bool isLogggedin = false;
   User user;
+  
 
   get floatingActionButton => null;
 

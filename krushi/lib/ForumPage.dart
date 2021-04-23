@@ -22,7 +22,7 @@ class _ForumState extends State<ForumPage> {
     DatabaseReference PostsRef =
         FirebaseDatabase.instance.reference().child("posts");
 
-    PostsRef.orderByChild("date").limitToLast(4).once().then((DataSnapshot snap) {
+    PostsRef.once().then((DataSnapshot snap) {
       var KEYS = snap.value.keys;
       var DATA = snap.value;
 
@@ -65,7 +65,6 @@ class _ForumState extends State<ForumPage> {
               color: Colors.green,
               onPressed: () => Scaffold.of(context).openDrawer(),
             ),
-
             actions: [
               Padding(
                 padding: EdgeInsets.only(right: 10.0, top: 10, bottom: 10),
