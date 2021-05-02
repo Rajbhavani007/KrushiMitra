@@ -15,7 +15,6 @@ Start application
   
    <img src="https://user-images.githubusercontent.com/54815114/116805168-27de3f80-ab42-11eb-8778-12a4f8737005.jpg" width="200" height="400" />
      <img src="https://user-images.githubusercontent.com/54815114/116805188-404e5a00-ab42-11eb-8383-5448fa3edf83.jpg" width="200" height="400" />
-     <img src="https://user-images.githubusercontent.com/54815114/116804964-9d491080-ab40-11eb-9c65-7954ab6b0dfc.jpg" width="200" height="400" />
      <img src="https://user-images.githubusercontent.com/54815114/116805192-4d6b4900-ab42-11eb-9afb-a61f30ea63b5.jpg" width="200" height="400" />
      
 
