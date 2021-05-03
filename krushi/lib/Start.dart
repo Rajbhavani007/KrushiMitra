@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_signin_button/flutter_signin_button.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 import 'SignUp.dart';
+
 import 'login.dart';
 import 'main.dart';
 
@@ -13,6 +14,21 @@ class Start extends StatefulWidget {
 }
 
 class _StartState extends State<Start> {
+<<<<<<< HEAD
+  bool _isloggedIn = false;
+  GoogleSignIn _googleSignIn = GoogleSignIn(scopes: ['email']);
+
+  loginwithgoogle() async {
+    try {
+      await _googleSignIn.signIn();
+      setState(() {
+        _isloggedIn = true;
+      });
+    } catch (err) {
+      print(err);
+    }
+  }
+=======
 
   final FirebaseAuth _auth = FirebaseAuth.instance;
   final GoogleSignIn _googleSignIn = new GoogleSignIn();
@@ -51,6 +67,7 @@ class _StartState extends State<Start> {
 
 
      }
+>>>>>>> upstream/main
 
   @override
   Widget build(BuildContext context) {
@@ -145,11 +162,21 @@ class _StartState extends State<Start> {
             SizedBox(
               height: 10,
             ),
+<<<<<<< HEAD
+            SignInButton(
+              Buttons.Google,
+              text: "Sign up with Google",
+              onPressed: () {
+                loginwithgoogle();
+              },
+            )
+=======
             SignInButton(Buttons.Google,
                 text: "Sign up with Google",
                 onPressed: () => _signup(context)
                     .then(( User user) => print(user))
                     .catchError((e)=> print(e))),
+>>>>>>> upstream/main
           ],
         ),
       )),
