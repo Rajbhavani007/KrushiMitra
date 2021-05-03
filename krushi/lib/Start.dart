@@ -14,7 +14,6 @@ class Start extends StatefulWidget {
 }
 
 class _StartState extends State<Start> {
-<<<<<<< HEAD
   bool _isloggedIn = false;
   GoogleSignIn _googleSignIn = GoogleSignIn(scopes: ['email']);
 
@@ -28,37 +27,9 @@ class _StartState extends State<Start> {
       print(err);
     }
   }
-=======
 
   final FirebaseAuth _auth = FirebaseAuth.instance;
-  final GoogleSignIn _googleSignIn = new GoogleSignIn();
 
-
-  Future<User> _signup(BuildContext context) async {
- 
-    final GoogleSignInAccount googleUser = await _googleSignIn.signIn();
-    final GoogleSignInAuthentication googleAuth =
-        await googleUser.authentication;
-        print(googleAuth);
-
-    final AuthCredential credential = GoogleAuthProvider.credential(
-      accessToken: googleAuth.accessToken,
-      idToken: googleAuth.idToken,
-    );
-    print(credential);
-      
-   User user = (await _auth.signInWithCredential(credential)).user;
-   print(user.providerData);
-   
-  
-    Navigator.push(
-        context, MaterialPageRoute(builder: (context) => MyHomePage()));
-
-    return user;
-
-
-     }
->>>>>>> upstream/main
 
   @override
   Widget build(BuildContext context) {
@@ -153,22 +124,12 @@ class _StartState extends State<Start> {
             SizedBox(
               height: 10,
             ),
-<<<<<<< HEAD
             SignInButton(
               Buttons.Google,
               text: "Sign up with Google",
               onPressed: () {
-                loginwithgoogle();
               },
-            )
-=======
-            SignInButton(Buttons.Google,
-                text: "Sign up with Google",
-                onPressed: () => _signup(context)
-                    .then(( User user) => print(user))
-                    .catchError((e)=> print(e))),
->>>>>>> upstream/main
-          ],
+            )   ],
         ),
       )),
     );

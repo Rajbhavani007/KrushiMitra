@@ -180,15 +180,8 @@ class _UploadImageState extends State<UploadImage> {
       "image": url,
       "date": date,
       "time": time,
-<<<<<<< HEAD
-      "problem": _problem,
-      "username": _username,
-=======
       "problem":_problem,
       "username":_username,
-      
-    
->>>>>>> upstream/main
     };
 
     ref.child("posts").push().set(data);
