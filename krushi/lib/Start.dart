@@ -1,3 +1,5 @@
+
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_signin_button/flutter_signin_button.dart';
 import 'package:google_sign_in/google_sign_in.dart';
@@ -12,6 +14,7 @@ class Start extends StatefulWidget {
 }
 
 class _StartState extends State<Start> {
+<<<<<<< HEAD
   bool _isloggedIn = false;
   GoogleSignIn _googleSignIn = GoogleSignIn(scopes: ['email']);
 
@@ -25,6 +28,46 @@ class _StartState extends State<Start> {
       print(err);
     }
   }
+=======
+
+  final FirebaseAuth _auth = FirebaseAuth.instance;
+  final GoogleSignIn _googleSignIn = new GoogleSignIn();
+
+
+  Future<User> _signup(BuildContext context) async {
+ 
+    final GoogleSignInAccount googleUser = await _googleSignIn.signIn();
+    final GoogleSignInAuthentication googleAuth =
+        await googleUser.authentication;
+        print(googleAuth);
+
+    final AuthCredential credential = GoogleAuthProvider.credential(
+      accessToken: googleAuth.accessToken,
+      idToken: googleAuth.idToken,
+    );
+    print(credential);
+      
+   User user = (await _auth.signInWithCredential(credential)).user;
+   print(user.providerData);
+   
+  //  ProviderDetails providerInfo = new ProviderDetails(user.photoURL) ;
+
+  //   List<ProviderDetails> providerData = new List<ProviderDetails>();
+  //   providerData.add(providerInfo);
+
+    // UserDetails details = new UserDetails(
+    //     user.displayName,
+    //     user.email,
+    //   );
+
+    Navigator.push(
+        context, MaterialPageRoute(builder: (context) => MyHomePage()));
+
+    return user;
+
+
+     }
+>>>>>>> upstream/main
 
   @override
   Widget build(BuildContext context) {
@@ -119,6 +162,7 @@ class _StartState extends State<Start> {
             SizedBox(
               height: 10,
             ),
+<<<<<<< HEAD
             SignInButton(
               Buttons.Google,
               text: "Sign up with Google",
@@ -126,9 +170,34 @@ class _StartState extends State<Start> {
                 loginwithgoogle();
               },
             )
+=======
+            SignInButton(Buttons.Google,
+                text: "Sign up with Google",
+                onPressed: () => _signup(context)
+                    .then(( User user) => print(user))
+                    .catchError((e)=> print(e))),
+>>>>>>> upstream/main
           ],
         ),
       )),
     );
   }
+}
+
+class UserDetails {
+  // final String providerDetails;
+  final String userName;
+  // final String photoUrl;
+  final String userEmail;
+  // final List<ProviderDetails> providerData;
+  // UserDetails(this.providerDetails, this.userName, this.photoUrl,
+  //     this.userEmail, this.providerData);
+
+      UserDetails (this.userName,
+      this.userEmail);
+}
+
+class ProviderDetails {
+  ProviderDetails(this.providerDetails);
+  final String providerDetails;
 }

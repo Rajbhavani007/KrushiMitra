@@ -1,5 +1,6 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
+import 'package:krushi/Blog.dart';
 
 import './main_drawer.dart';
 import 'Profilepage.dart';
@@ -17,6 +18,7 @@ void main() async {
   await Firebase.initializeApp();
   runApp(MyApp());
 }
+
 class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
@@ -42,7 +44,7 @@ class MyHomePage extends StatefulWidget {
 class _MyHomePageState extends State<MyHomePage> {
   FirebaseAuth _auth = FirebaseAuth.instance;
   int _selectpage = 0;
-  final _pageOption = [HomePage(), ForumPage(), SearchPage(), ProfilePage()];
+  final _pageOption = [HomePage(), ForumPage(), Blog(), ProfilePage()];
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -61,15 +63,13 @@ class _MyHomePageState extends State<MyHomePage> {
             title: 'Home',
           ),
           TabItem(icon: Icons.forum, title: 'Forum'),
-          TabItem(icon: Icons.search, title: 'Search'),
+          TabItem(icon: Icons.article, title: 'Blog'),
           TabItem(icon: Icons.person, title: 'Profile'),
         ],
         initialActiveIndex: 0,
         onTap: (int index) {
           setState(() {
-            
             _selectpage = index;
-            
           });
         },
       ),

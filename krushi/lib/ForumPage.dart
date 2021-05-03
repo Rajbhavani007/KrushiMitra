@@ -1,5 +1,6 @@
 import 'package:firebase_database/firebase_database.dart';
 import "package:flutter/material.dart";
+import 'CommentPage.dart';
 import 'Posts.dart';
 import 'UploadImage.dart';
 import "main_drawer.dart";
@@ -27,7 +28,7 @@ class _ForumState extends State<ForumPage> {
 
       postsList.clear();
 
-      for (var individualKey in KEYS) {
+      for (var individualKey in KEYS)  {
         Posts posts = new Posts(
           DATA[individualKey]["image"],
           DATA[individualKey]["description"],
@@ -48,58 +49,63 @@ class _ForumState extends State<ForumPage> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: Text(
-          "FORUM",
-          style: TextStyle(color: Colors.black),
-        ),
-        backgroundColor: Colors.white,
-        // iconTheme: IconThemeData(color: Colors.green),
-        leading: IconButton(
-          icon: Icon(Icons.sort),
-          color: Colors.green,
-          onPressed: () => Scaffold.of(context).openDrawer(),
-        ),
-
-        actions: [
-          Padding(
-            padding: EdgeInsets.only(right: 10.0, top: 10, bottom: 10),
-            child: RaisedButton(
-              textColor: Colors.white,
-              color: Colors.green,
-              child: Text("Creat Post"),
-              onPressed: () {
-                Navigator.push(context,
-                    MaterialPageRoute(builder: (context) => UploadImage()));
-              },
-              shape: new RoundedRectangleBorder(
-                borderRadius: new BorderRadius.circular(10.0),
-              ),
+    return StreamBuilder<Object>(
+      stream: null,
+      builder: (context, snapshot) {
+        return Scaffold(
+          appBar: AppBar(
+            title: Text(
+              "FORUM",
+              style: TextStyle(color: Colors.black),
             ),
-          )
-        ],
-      ),
-      drawer: MainDrawer(),
-      body: Container(
-        color: Colors.white,
-        child: postsList.length == 0
-            ? LinearProgressIndicator(
-                backgroundColor: Colors.green,
+            backgroundColor: Colors.white,
+            // iconTheme: IconThemeData(color: Colors.green),
+            leading: IconButton(
+              icon: Icon(Icons.sort),
+              color: Colors.green,
+              onPressed: () => Scaffold.of(context).openDrawer(),
+            ),
+            actions: [
+              Padding(
+                padding: EdgeInsets.only(right: 10.0, top: 10, bottom: 10),
+                child: RaisedButton(
+                  textColor: Colors.white,
+                  color: Colors.green,
+                  child: Text("Creat Post"),
+                  onPressed: () {
+                    // Navigator.pop(context);
+                    Navigator.push(context,
+                        MaterialPageRoute(builder: (context) => UploadImage()));
+                  },
+                  shape: new RoundedRectangleBorder(
+                    borderRadius: new BorderRadius.circular(10.0),
+                  ),
+                ),
               )
-            : new ListView.builder(
-                itemCount: postsList.length,
-                itemBuilder: (BuildContext context, index) {
-                  return PostsUI(
-                    postsList[index].image,
-                    postsList[index].description,
-                    postsList[index].time,
-                    postsList[index].date,
-                    postsList[index].problem,
-                    postsList[index].username,
-                  );
-                }),
-      ),
+            ],
+          ),
+          drawer: MainDrawer(),
+          body: Container(
+            color: Colors.white,
+            child: postsList.length == 0
+                ? LinearProgressIndicator(
+                    backgroundColor: Colors.green,
+                  )
+                : new ListView.builder(
+                    itemCount: postsList.length,
+                    itemBuilder: (BuildContext context, index) {
+                      return PostsUI(
+                        postsList[index].image,
+                        postsList[index].description,
+                        postsList[index].time,
+                        postsList[index].date,
+                        postsList[index].problem,
+                        postsList[index].username,
+                      );
+                    }),
+          ),
+        );
+      }
     );
   }
 
@@ -206,7 +212,9 @@ class _ForumState extends State<ForumPage> {
                     child: Column(
                   children: [
                     RaisedButton(
-                      onPressed: () {print("Comment");},
+                      onPressed: () {
+                      Navigator.push(context, MaterialPageRoute(builder: (context) => CommentPage()));
+                      },
                       child: Column(
                         children: <Widget>[
                           Row(children: [

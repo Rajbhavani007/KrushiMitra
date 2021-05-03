@@ -1,13 +1,17 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:google_sign_in/google_sign_in.dart';
+import 'package:krushi/Blog.dart';
 import 'Profilepage.dart';
-import 'SettingPage.dart';
 import 'package:share/share.dart';
 
 class MainDrawer extends StatelessWidget {
   final FirebaseAuth _auth = FirebaseAuth.instance;
+  final GoogleSignIn _googleSignIn = new GoogleSignIn();
+
   User user;
   bool isLogggedin = false;
+  
 
   SignOut() async {
     _auth.signOut();
@@ -37,6 +41,8 @@ class MainDrawer extends StatelessWidget {
                       )),
                   Text(
                     _auth.currentUser.displayName,
+                    // user.displayName,
+                    
                     style: TextStyle(
                       fontWeight: FontWeight.bold,
                       fontSize: 20,
@@ -45,6 +51,7 @@ class MainDrawer extends StatelessWidget {
                   ),
                   Text(
                     _auth.currentUser.email,
+                    // user.email,
                     style: TextStyle(
                       fontWeight: FontWeight.bold,
                       fontSize: 15,
@@ -67,19 +74,6 @@ class MainDrawer extends StatelessWidget {
               
               Navigator.push(context,
                   MaterialPageRoute(builder: (context) => ProfilePage()));
-            },
-          ),
-          ListTile(
-            leading: Icon(Icons.settings),
-            title: Text(
-              "Setting",
-              style: TextStyle(
-                fontSize: 18,
-              ),
-            ),
-            onTap: () {
-              Navigator.push(context,
-                  MaterialPageRoute(builder: (context) => SettingPage()));
             },
           ),
           ListTile(

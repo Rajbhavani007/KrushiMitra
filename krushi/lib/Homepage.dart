@@ -20,6 +20,7 @@ class _HomePageState extends State<HomePage> {
   final FirebaseAuth _auth = FirebaseAuth.instance;
   bool isLogggedin = false;
   User user;
+  
 
   get floatingActionButton => null;
 
@@ -34,7 +35,7 @@ class _HomePageState extends State<HomePage> {
   }
 
   getuser() async {
-    User Firebaseuser = await _auth.currentUser;
+    User Firebaseuser = _auth.currentUser;
     await Firebaseuser?.reload();
     Firebaseuser = _auth.currentUser;
 
@@ -246,9 +247,9 @@ class _HomePageState extends State<HomePage> {
           foregroundColor: Colors.black,
           backgroundColor: Colors.green[300],
           onPressed: () {
-            Navigator.pop(context);
+            // Navigator.pop(context);
             Navigator.push(context,
-                MaterialPageRoute(builder: (context) => UploadImage()));
+                    MaterialPageRoute(builder: (context) => UploadImage()));
           },
           highlightElevation: 10,
         ),
