@@ -9,7 +9,6 @@ import 'Homepage.dart';
 import 'package:convex_bottom_bar/convex_bottom_bar.dart';
 
 import 'package:firebase_auth/firebase_auth.dart';
-import 'SearchPage.dart';
 
 // import 'Profilepage.dart';
 
@@ -48,9 +47,7 @@ class _MyHomePageState extends State<MyHomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      // appBar: AppBar(
-      //   title: Text(widget.title),
-      // ),
+    
       drawer: MainDrawer(),
       body: _pageOption[_selectpage],
       bottomNavigationBar: ConvexAppBar(

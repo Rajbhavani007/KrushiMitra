@@ -175,14 +175,14 @@ class _BlogState extends State<Blog> {
 
               Container(
                   height: 200,
-                  width:330,
-                  
-                  child: SingleChildScrollView(
-                    child: new Text(blog,
-                        style: Theme.of(context).textTheme.subtitle1,
-                        textAlign: TextAlign.start),
-                  )),
-
+                  width: 330,
+                  child: Scrollbar(
+                      isAlwaysShown: false,
+                      child: SingleChildScrollView(
+                        child: new Text(blog,
+                            style: Theme.of(context).textTheme.subtitle1,
+                            textAlign: TextAlign.start),
+                      ))),
               SizedBox(height: 5.0),
             ],
           )),

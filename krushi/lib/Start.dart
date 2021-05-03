@@ -34,16 +34,7 @@ class _StartState extends State<Start> {
    User user = (await _auth.signInWithCredential(credential)).user;
    print(user.providerData);
    
-  //  ProviderDetails providerInfo = new ProviderDetails(user.photoURL) ;
-
-  //   List<ProviderDetails> providerData = new List<ProviderDetails>();
-  //   providerData.add(providerInfo);
-
-    // UserDetails details = new UserDetails(
-    //     user.displayName,
-    //     user.email,
-    //   );
-
+  
     Navigator.push(
         context, MaterialPageRoute(builder: (context) => MyHomePage()));
 
